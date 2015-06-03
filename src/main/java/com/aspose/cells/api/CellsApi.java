@@ -3,7 +3,7 @@ package com.aspose.cells.api;
 import com.aspose.client.ApiException;
 import com.aspose.client.ApiInvoker;
 import com.aspose.client.ApiInvokerResponse;
-
+import com.aspose.cells.model.AutoShapeResponse;
 import com.aspose.cells.model.Worksheet;
 import com.aspose.cells.model.PivotTableFieldRequest;
 import com.aspose.cells.model.HyperlinksResponse;
@@ -2684,7 +2684,7 @@ try {
 	* @return ResponseMessage
 	*/
 
-  public ResponseMessage GetWorksheetAutoshape (String name, String sheetName, Integer autoshapeNumber, String storage, String folder) {
+  public AutoShapeResponse GetWorksheetAutoshape (String name, String sheetName, Integer autoshapeNumber, String storage, String folder) {
     Object postBody = null;
     // verify required params are set
     if(name == null || sheetName == null || autoshapeNumber == null ) {
@@ -2725,7 +2725,7 @@ try {
 
 try {
 		response = apiInvoker.invokeAPI(basePath, resourcePath, "GET", queryParams, postBody, headerParams, formParams, contentType);
-		return (ResponseMessage) ApiInvoker.deserialize(response, "", ResponseMessage.class);
+		return (AutoShapeResponse) ApiInvoker.deserialize(response, "", AutoShapeResponse.class);
     } catch (ApiException ex) {
       if(ex.getCode() == 404) {
       	throw new ApiException(404, "");

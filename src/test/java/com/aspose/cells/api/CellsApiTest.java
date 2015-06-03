@@ -21,6 +21,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.aspose.cells.model.AutoFitterOptions;
+import com.aspose.cells.model.AutoShapeResponse;
 import com.aspose.cells.model.AutoShapesResponse;
 import com.aspose.cells.model.BarcodeResponseList;
 import com.aspose.cells.model.CellResponse;
@@ -261,7 +262,7 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorksheetColumn() {
 		System.out.println("GetWorksheetColumn");
-		String name = "test_cells.xlsx";
+		String name = "test_book1.xls";
 		String sheetName = "Sheet1";
 		Integer columnIndex = 1;
 		String storage = "";
@@ -966,8 +967,8 @@ public class CellsApiTest {
 		String folder = "";
 		try {
 			
-			ResponseMessage result = cellsApi.GetWorksheetAutoshape(name, sheetName, autoshapeNumber, storage, folder);
-			
+			 AutoShapeResponse result = cellsApi.GetWorksheetAutoshape(name, sheetName, autoshapeNumber, storage, folder);
+			 System.out.println("getHref" + result.getAutoShape().getLink().getHref());
 			
 		} catch (ApiException apiException) {
 			System.out.println("exp:" + apiException.getMessage());
@@ -3235,13 +3236,14 @@ public class CellsApiTest {
 	@Test
 	public void testGetWorkSheetValidations() {
 		System.out.println("GetWorkSheetValidations");
-		String name = "test_cells.xlsx";
+		String name = "test_book1.xls";
 		String sheetName = "Sheet1";
 		String storage = "";
 		String folder = "";
 		try {
 			
 			ValidationsResponse result = cellsApi.GetWorkSheetValidations(name, sheetName, storage, folder);
+			System.out.print(result.getValidations().getCount());
 			
 			
 		} catch (ApiException apiException) {
